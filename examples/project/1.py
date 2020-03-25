@@ -3,6 +3,7 @@ from ClipMaster.ClipMaster import ClipMaster
 import os
 import youtube_dl
 
+
 cm = ClipMaster()
 
 #conversion
@@ -34,6 +35,5 @@ cm.clip('crop_vd.mp4').audio('audio.mp3').bind_to('output.mp4')
 os.remove('crop_vd.mp4')
 os.remove('audio.mp3')
 
-
-
-#C:\\Python38-32\\lib\\site-packages\\imageio_ffmpeg\\binaries\\ffmpeg-win32-v4.1.exe
+cm.clip('output.mp4').add_logo('robist.png','watermarked.mp4')
+os.remove('output.mp4')
