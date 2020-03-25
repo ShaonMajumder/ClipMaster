@@ -293,11 +293,12 @@ class ClipMaster:
     def add_logo(self,logofile,outputfile):
         # transparent logo png
         # https://ffmpeg.org/ffmpeg-filters.html#Examples-87
+        # https://www.ffmpeg.org/ffmpeg-filters.html#pad
+        # https://ffmpeg.org/ffmpeg-filters.html#removelogo
         # left
         #cmd_str_ = [get_setting("FFMPEG_BINARY"),'-i', self._clip_, '-i', logofile, '-filter_complex', "overlay=10:main_h-overlay_h-10", outputfile]
         # right
         cmd_str_ = [get_setting("FFMPEG_BINARY"),'-i', self._clip_, '-i', logofile, '-filter_complex',  "overlay=main_w-overlay_w-10:main_h-overlay_h-10", outputfile]
-        
         for path in self.execute_(cmd_str_):
             print(path, end="")
-        print("Watermarked added to",outputfile)
+        print("Watermark added to",outputfile)
